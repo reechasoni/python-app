@@ -1,0 +1,15 @@
+## Building docker image
+
+docker build -t reechasoni/python-app:1.0 .
+
+## Login to docker hub
+
+docker login -u reechasoni -p richa1704
+
+## push docker image to dockerhub
+
+docker push reechasoni/python-app:1.0
+
+## Run docker container on Dev server
+
+ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/dev.pem ec2-user@172.31.40.171 docker run -d -p 8081:5000 reechasoni/python-app:1.0
